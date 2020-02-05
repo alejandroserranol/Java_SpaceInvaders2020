@@ -24,6 +24,8 @@ public class VentanaJuego extends javax.swing.JFrame {
     int filasMarcianos = 5;
     int columnasMarcianos = 10;
     
+    int contador = 0;
+    
     BufferedImage buffer = null;
     
     //bucle de animación del juego
@@ -46,13 +48,22 @@ public class VentanaJuego extends javax.swing.JFrame {
         g2.setColor(Color.BLACK);
         g2.fillRect(0, 0, ANCHOPANTALLA, ALTOPANTALLA);
         
-        ///////////////////////////////////////////////
-        
-        ///////////////////////////////////////////////
+        contador++;
+        ////////////////////////////////////////////////////////////////////////
+        if(contador < 50){
+        g2.drawImage(miMarciano.imagen1, 10, 10, null);
+        } else if (contador < 100){
+            g2.drawImage(miMarciano.imagen2, 10, 10, null);
+        } else {
+            contador = 0;
+        }
+        ////////////////////////////////////////////////////////////////////////
         //dibujo de golpe todo el buffer sobre el jPanel1
         g2 = (Graphics2D) jPanel1.getGraphics();
         g2.drawImage(buffer, 0, 0, null);
     }
+    
+    Marciano miMarciano = new Marciano(ANCHOPANTALLA);
 
     /**
      * Creates new form VentanaJuego
