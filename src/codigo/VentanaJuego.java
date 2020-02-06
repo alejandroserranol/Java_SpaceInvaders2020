@@ -57,6 +57,9 @@ public class VentanaJuego extends javax.swing.JFrame {
         } else {
             contador = 0;
         }
+        
+        //dibujo la nave
+        g2.drawImage(miNave.imagen, miNave.posX, miNave.posY, null);
         ////////////////////////////////////////////////////////////////////////
         //dibujo de golpe todo el buffer sobre el jPanel1
         g2 = (Graphics2D) jPanel1.getGraphics();
@@ -64,6 +67,9 @@ public class VentanaJuego extends javax.swing.JFrame {
     }
     
     Marciano miMarciano = new Marciano(ANCHOPANTALLA);
+    
+    Nave miNave = new Nave();
+    
 
     /**
      * Creates new form VentanaJuego
@@ -74,7 +80,9 @@ public class VentanaJuego extends javax.swing.JFrame {
         buffer = (BufferedImage) jPanel1.createImage(ANCHOPANTALLA, ALTOPANTALLA);
         buffer.createGraphics();
         
-        teporizador.start();
+        teporizador.start();//arranco el temporizador
+        miNave.posX = ANCHOPANTALLA/2 - miNave.imagen.getWidth(this)/2;
+        miNave.posY = ALTOPANTALLA - 100;
     }
 
     /**
