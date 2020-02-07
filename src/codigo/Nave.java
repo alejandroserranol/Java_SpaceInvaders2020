@@ -9,17 +9,50 @@ import javax.imageio.ImageIO;
  * @author Alejandro Serrano
  */
 public class Nave {
-    
-    Image imagen = null;    
+
+    Image imagen = null;
     public int posX = 0;
     public int posY = 0;
-    
-    public Nave(){
-        try{
+
+    private boolean pulsadoIzquierda = false;
+    private boolean pulsadoDerecha = false;
+
+    public Nave() {
+        try {
             imagen = ImageIO.read(getClass().getResource("/imagenes/nave.png"));
-        }
-        catch(IOException e) {      
+        } catch (IOException e) {
         }
     }
-    
+
+    public void mueve() {
+        if (pulsadoIzquierda && posX > 0) {
+            posX-=3;
+        }
+        if (pulsadoDerecha && posX < VentanaJuego.ANCHOPANTALLA - imagen.getWidth(null)*1.4) {
+            posX+=3;
+        }
+    }
+
+    public boolean isPulsadoIzquierda() {
+        return pulsadoIzquierda;
+    }
+
+    public void setPulsadoIzquierda(boolean pulsadoIzquierda) {
+        if (!pulsadoDerecha) {
+            this.pulsadoIzquierda = pulsadoIzquierda;
+            this.pulsadoDerecha = false;
+        }
+    }
+
+    public boolean isPulsadoDerecha() {
+        return pulsadoDerecha;
+    }
+
+    public void setPulsadoDerecha(boolean pulsadoDerecha) {
+        if (!pulsadoIzquierda) {
+            this.pulsadoDerecha = pulsadoDerecha;
+            this.pulsadoIzquierda = false;
+        }
+    }
+
 }
