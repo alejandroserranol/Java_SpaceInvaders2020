@@ -12,7 +12,7 @@ public class Disparo {
 
     Image imagen = null;
     public int posX = 0;
-    public int posY = 0;
+    public int posY = -2000;
 
     public Disparo() {
         try {
@@ -22,7 +22,7 @@ public class Disparo {
     }
 
     public void mueve() {
-        posY--;
+        posY-=5;
     }
     
     public void posicionaDisparo(Nave _nave){
