@@ -277,6 +277,7 @@ public class VentanaJuego extends javax.swing.JFrame {
                 break;
             case KeyEvent.VK_SPACE:
                 Disparo d = new Disparo();
+                d.imagen = plantilla.getSubimage(255, 130, 32, 32);
                 d.sonidoDisparo.start();
                 d.posicionaDisparo(miNave);
                 //agregamos el disparo a la lista de disparos

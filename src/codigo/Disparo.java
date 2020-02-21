@@ -20,11 +20,11 @@ public class Disparo {
 
     public Disparo() {
         try {
-            imagen = ImageIO.read(getClass().getResource("/imagenes/disparo.png"));
+            //imagen = ImageIO.read(getClass().getResource("/imagenes/disparo.png"));
             sonidoDisparo = AudioSystem.getClip();
             sonidoDisparo.open(
                     AudioSystem.getAudioInputStream(
-                            getClass().getResource("/sonidos/disparosXBOX.wav"))
+                            getClass().getResource("/sonidos/disparo.wav"))
             );
         } catch (Exception e) {
         }
